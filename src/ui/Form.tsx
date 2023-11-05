@@ -1,5 +1,7 @@
 import { FormEvent } from "react";
 
+import { insertItem } from "../services/firebase";
+
 import "./Form.css";
 
 const CATEGORIES = ["Mercado", "Lazer", "Casa"];
@@ -14,7 +16,13 @@ const Form = () => {
     const price = parseFloat(data.get("price") as string);
     const description = (data?.get("description") || "") as string;
 
-    console.log(category, price, description);
+    insertItem({ category, price, description })
+      .then(() => {
+        console.log("success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
