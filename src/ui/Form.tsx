@@ -2,9 +2,18 @@ import { FormEvent } from "react";
 
 import { insertItem } from "../services/firebase";
 
-import "./Form.css";
+import { Button, TextField } from "sagu-ui";
+import TextArea from "./TextArea";
+import styled from "styled-components";
+import Select from "./Select";
 
-const CATEGORIES = ["Mercado", "Lazer", "Casa"];
+const S = {
+  Form: styled("form")`
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  `,
+};
 
 const Form = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -26,17 +35,16 @@ const Form = () => {
   };
 
   return (
-    <form id="form" onSubmit={(e) => handleSubmit(e)}>
-      <select required name="category" placeholder="Categoria">
-        {CATEGORIES.map((category) => (
-          <option key={category}>{category}</option>
-        ))}
-      </select>
+    <S.Form id="form" onSubmit={(e) => handleSubmit(e)}>
+      <Select />
+      <TextField type="number" name="price" required label="Valor" />
 
-      <input placeholder="Valor" type="number" name="price" required />
-      <textarea placeholder="Descrição" rows={8} name="description" />
-      <button type="submit">Adicionar</button>
-    </form>
+      <TextArea />
+
+      <Button type="submit" variant="filled">
+        Adicionar
+      </Button>
+    </S.Form>
   );
 };
 
