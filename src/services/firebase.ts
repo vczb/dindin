@@ -19,16 +19,19 @@ type insertItemProps = {
   category: string;
   price: number;
   description: string;
+  date: string;
 };
 
 export const insertItem = async ({
   category,
   price,
   description,
+  date,
 }: insertItemProps) => {
   return await setDoc(doc(db, "store", Date.now().toString()), {
     category,
     price,
     description,
+    date,
   });
 };
