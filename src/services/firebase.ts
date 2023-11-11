@@ -15,8 +15,7 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-const DATABASE = "store";
-// const DATABASE = "test";
+const DATABASE = window.location.host === "vczb.github.io" ? "store" : "test";
 
 export type insertItemProps = {
   category: string;
