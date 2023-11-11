@@ -2,7 +2,14 @@ import { Button, Input, TextArea, Select } from "sagu-ui";
 import styled from "styled-components";
 import useInventory from "../hooks/useInventory";
 
-const OPTIONS = ["Mercado", "Restaurantes", "Passeios", "Casa", "Outros"];
+const OPTIONS = [
+  "Mercado",
+  "Restaurantes",
+  "Passeios",
+  "Casa",
+  "Farmácia",
+  "Outros",
+];
 
 const S = {
   Form: styled("form")`
