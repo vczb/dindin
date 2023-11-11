@@ -1,8 +1,9 @@
 import { theme, SaguGlobalStyles, SaguProvider, Container } from "sagu-ui";
 
 import "./App.css";
-import Form from "./ui/Form";
+
 import Notification from "./ui/Notification";
+import Router from "./router/Router";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <SaguGlobalStyles />
       <main>
         <Container>
-          <Form />
+          <Router />
           <Notification />
         </Container>
       </main>
