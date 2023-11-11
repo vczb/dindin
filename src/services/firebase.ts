@@ -15,7 +15,10 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-type insertItemProps = {
+const DATABASE = "store";
+// const DATABASE = "test";
+
+export type insertItemProps = {
   category: string;
   price: number;
   description: string;
@@ -28,7 +31,7 @@ export const insertItem = async ({
   description,
   date,
 }: insertItemProps) => {
-  return await setDoc(doc(db, "store", Date.now().toString()), {
+  return await setDoc(doc(db, DATABASE, Date.now().toString()), {
     category,
     price,
     description,
