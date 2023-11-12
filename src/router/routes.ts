@@ -1,3 +1,4 @@
+import Home from "../pages/Home";
 import Inventory from "../pages/Inventory";
 import NotFound from "../pages/NotFound";
 import { View } from "./Router";
@@ -11,8 +12,14 @@ type Routes = {
 
 export const routes: Routes[] = [
   {
-    path: "/",
+    path: "",
     exact: true,
+    private: false,
+    component: Home,
+  },
+  {
+    path: "adicionar",
+    exact: false,
     private: false,
     component: Inventory,
   },

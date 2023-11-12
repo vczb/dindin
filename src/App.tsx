@@ -9,7 +9,9 @@ function App() {
   return (
     <SaguProvider theme={theme}>
       <SaguGlobalStyles />
-      <main>
+      <main
+        style={{ display: "grid", placeItems: "center", minHeight: "70vh" }}
+      >
         <Container>
           <Router />
           <Notification />

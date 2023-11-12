@@ -10,11 +10,13 @@ const Router = () => {
     const onLocationHashChange = () => {
       const [, path] = window.location.pathname.split("dindin");
 
+      const formattedPath = path.replace("/", "");
+
       const current = routes.find((route) => {
         if (route.exact) {
-          return route.path === path;
+          return route.path === formattedPath;
         }
-        return route.path.includes(path);
+        return route.path.includes(formattedPath);
       });
 
       if (current) {
