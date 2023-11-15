@@ -30,13 +30,15 @@ const useInventory = () => {
 
   const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     setIsFormLoading(true);
 
     const data = getFormData(event);
 
     insertOnInventory(data)
       .then(() => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        event.target.reset();
         dispatch(TOAST_MESSAGE_EVENT, FORM_STATUS.success);
       })
       .catch(() => {
