@@ -7,7 +7,7 @@ const Inventory = () => {
     { name: "Adicionar", link: "" },
   ];
   return (
-    <Box flex="column">
+    <Box flex="column" variant="transparent">
       <Breadcrumb items={breadcrumb} />
       <Form />
     </Box>

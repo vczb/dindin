@@ -1,6 +1,33 @@
 import { Toaster } from "sagu-ui";
 import { TOAST_MESSAGE_EVENT, observe } from "../services/events";
 import { useEffect, useState } from "react";
+import styled, { css } from "styled-components";
+
+const Wrapper = styled.div`
+  ${({ theme }) => css`
+    position: relative;
+    > div {
+      background: ${theme.colors.base.white};
+      position: fixed;
+      top: 20%;
+      width: fit-content;
+
+      @keyframes move {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      animation-name: move;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: 1;
+      will-change: transform;
+    }
+  `}
+`;
 
 type StatusStateProps = {
   message: string;
@@ -17,20 +44,19 @@ const Notification = () => {
   }, []);
 
   return (
-    <>
+    <Wrapper>
       {showToast?.message && (
         <Toaster
           onClose={() => setShowToast(null)}
           severity={showToast.type}
           closable={false}
           showIcon={true}
-          duration={3000}
-          style={{ marginTop: ".8rem" }}
+          duration={6000}
         >
           {showToast.message}
         </Toaster>
       )}
-    </>
+    </Wrapper>
   );
 };
 

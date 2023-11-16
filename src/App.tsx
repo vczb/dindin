@@ -10,7 +10,13 @@ function App() {
     <SaguProvider theme={theme}>
       <SaguGlobalStyles />
       <main
-        style={{ display: "grid", placeItems: "center", minHeight: "70vh" }}
+        style={{
+          display: "grid",
+          placeItems: "center",
+          minHeight: "70vh",
+          width: "fit-content",
+          margin: "auto",
+        }}
       >
         <Container>
           <Router />
