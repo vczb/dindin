@@ -33,7 +33,7 @@ const Dashboard = () => {
   }
 
   if (!isLoading && !items) {
-    return <>Ops... algo deu errado</>;
+    return <></>;
   }
 
   const columns = [
