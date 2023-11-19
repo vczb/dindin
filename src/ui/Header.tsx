@@ -13,6 +13,7 @@ const Header = () => {
       flex="row"
       fullWidth
       padding="small"
+      variant="transparent"
     >
       <Logo fill={theme.colors.primary.medium} />
     </Box>
