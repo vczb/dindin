@@ -49,9 +49,9 @@ const Notification = () => {
         <Toaster
           onClose={() => setShowToast(null)}
           severity={showToast.type}
-          closable={false}
+          closable={true}
           showIcon={true}
-          duration={6000}
+          duration={2500}
         >
           {showToast.message}
         </Toaster>
