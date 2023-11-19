@@ -3,8 +3,8 @@ import Form from "../ui/Form";
 
 const Inventory = () => {
   const breadcrumb = [
-    { name: "Inicio", link: "/" },
-    { name: "Adicionar", link: "" },
+    { name: "Inicio", link: "/dindin" },
+    { name: "Adicionar", link: "/dindin/adicionar" },
   ];
   return (
     <Box flex="column" variant="transparent">

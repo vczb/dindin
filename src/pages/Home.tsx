@@ -11,7 +11,7 @@ const Home = () => {
       fullWidth={false}
       style={{ margin: "auto" }}
     >
-      <NavLink size={"large"} href="adicionar" padding="none">
+      <NavLink size={"large"} href="/dindin/adicionar" padding="none">
         Adicionar
       </NavLink>
       <Divider style={{ width: "100%" }} />
