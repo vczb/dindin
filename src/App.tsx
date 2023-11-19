@@ -1,4 +1,5 @@
-import { theme, SaguGlobalStyles, SaguProvider, Container } from "sagu-ui";
+import { SaguGlobalStyles, SaguProvider, Container, theme } from "sagu-ui";
+import { base } from "sagu-ui/src/styles/theme/colors";
 
 import "./App.css";
 
@@ -6,6 +7,9 @@ import Notification from "./ui/Notification";
 import Router from "./router/Router";
 
 function App() {
+  // Fix color base bug
+  Object.assign(theme.colors.base, base);
+
   return (
     <SaguProvider theme={theme}>
       <SaguGlobalStyles />
