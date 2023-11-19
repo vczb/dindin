@@ -1,8 +1,12 @@
 import { FormEvent, useCallback, useState } from "react";
-import { insertItem, insertItemProps } from "../services/firebase";
+import {
+  getCollection,
+  insertItem,
+  insertItemProps,
+} from "../services/firebase";
 import { TOAST_MESSAGE_EVENT, dispatch } from "../services/events";
 
-const FORM_STATUS = {
+const NOTIFICATION_STATUS = {
   success: {
     message: "Adicionado com sucesso!",
     type: "success",
@@ -14,7 +18,7 @@ const FORM_STATUS = {
 };
 
 const useInventory = () => {
-  const [isFormLoading, setIsFormLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getFormData = (event: FormEvent<HTMLFormElement>) => {
     const data = new FormData(event.currentTarget);
@@ -30,7 +34,7 @@ const useInventory = () => {
 
   const handleSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsFormLoading(true);
+    setIsLoading(true);
 
     const data = getFormData(event);
 
@@ -39,13 +43,28 @@ const useInventory = () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         event.target.reset();
-        dispatch(TOAST_MESSAGE_EVENT, FORM_STATUS.success);
+        dispatch(TOAST_MESSAGE_EVENT, NOTIFICATION_STATUS.success);
       })
       .catch(() => {
-        dispatch(TOAST_MESSAGE_EVENT, FORM_STATUS.error);
+        dispatch(TOAST_MESSAGE_EVENT, NOTIFICATION_STATUS.error);
       })
       .finally(() => {
-        setIsFormLoading(false);
+        setIsLoading(false);
+      });
+  }, []);
+
+  const getInventory = useCallback(async () => {
+    setIsLoading(true);
+    return await getCollection()
+      .then((data) => {
+        return data;
+      })
+      .catch(() => {
+        dispatch(TOAST_MESSAGE_EVENT, NOTIFICATION_STATUS.error);
+        return null;
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -53,7 +72,8 @@ const useInventory = () => {
     getFormData,
     insertOnInventory,
     handleSubmit,
-    isFormLoading,
+    isLoading,
+    getInventory,
   };
 };
 export default useInventory;

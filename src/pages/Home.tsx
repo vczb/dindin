@@ -14,6 +14,9 @@ const Home = () => {
       <NavLink size={"large"} href="/dindin/adicionar" padding="none">
         Adicionar
       </NavLink>
+      <NavLink size={"large"} href="/dindin/lista" padding="none">
+        Ver todos
+      </NavLink>
       <Divider style={{ width: "100%" }} />
       <Box
         flex="column"
@@ -27,9 +30,6 @@ const Home = () => {
           Em breve
         </Ribbon>
         <div />
-        <NavLink size={"large"} href="#" disabled={true} padding="none">
-          Ver todos
-        </NavLink>
         <NavLink size={"large"} href="#" disabled={true} padding="none">
           Gráficos
         </NavLink>

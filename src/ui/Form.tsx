@@ -20,7 +20,7 @@ const S = {
 };
 
 const Form = () => {
-  const { handleSubmit, isFormLoading } = useInventory();
+  const { handleSubmit, isLoading } = useInventory();
 
   return (
     <S.Form id="form" onSubmit={(e) => handleSubmit(e)}>
@@ -33,8 +33,8 @@ const Form = () => {
         defaultValue={new Date().toISOString().substring(0, 10)}
       />
       <TextArea label="Descrição" name="description" />
-      <Button type="submit" variant="filled" disabled={isFormLoading}>
-        {isFormLoading ? "Carregando..." : "Adicionar"}
+      <Button type="submit" variant="filled" disabled={isLoading}>
+        {isLoading ? "Carregando..." : "Adicionar"}
       </Button>
     </S.Form>
   );

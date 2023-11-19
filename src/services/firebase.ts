@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZjkGpg1hY-7QK8R5w64V-s-CsxqsS5_c",
@@ -36,4 +36,27 @@ export const insertItem = async ({
     description,
     date,
   });
+};
+
+export const getCollection = async () => {
+  try {
+    const collectionRef = collection(db, DATABASE);
+    const querySnapshot = await getDocs(collectionRef);
+
+    const inventory: any = [];
+
+    querySnapshot.forEach((doc) => {
+      if (doc.exists()) {
+        inventory.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      }
+    });
+
+    return inventory;
+  } catch (error) {
+    console.error("Error getting inventory:", error);
+    throw error; // You can handle the error as needed in your application
+  }
 };

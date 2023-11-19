@@ -1,3 +1,4 @@
+import Collection from "../pages/Collection";
 import Home from "../pages/Home";
 import Inventory from "../pages/Inventory";
 import NotFound from "../pages/NotFound";
@@ -22,6 +23,12 @@ export const routes: Routes[] = [
     exact: false,
     private: false,
     component: Inventory,
+  },
+  {
+    path: "lista",
+    exact: false,
+    private: false,
+    component: Collection,
   },
   {
     path: "404",
