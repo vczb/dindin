@@ -11,6 +11,7 @@ const Wrapper = styled.div`
       position: fixed;
       top: 20%;
       width: fit-content;
+      z-index: ${theme.layers.alwaysOnTop};
 
       @keyframes move {
         0% {
