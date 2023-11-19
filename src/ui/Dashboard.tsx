@@ -38,6 +38,7 @@ const Dashboard = () => {
     // { title: "Id", key: "id" },
     { title: "Categoria", key: "category" },
     { title: "Preço", key: "price" },
+    { title: "Descrição", key: "description" },
     { title: "Data", key: "date" },
   ];
 
