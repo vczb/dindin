@@ -1,6 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  doc,
+  setDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZjkGpg1hY-7QK8R5w64V-s-CsxqsS5_c",
@@ -43,6 +48,7 @@ export const getCollection = async () => {
     const collectionRef = collection(db, DATABASE);
     const querySnapshot = await getDocs(collectionRef);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const inventory: any = [];
 
     querySnapshot.forEach((doc) => {

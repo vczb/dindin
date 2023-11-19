@@ -21,6 +21,8 @@ const Dashboard = () => {
         {Array.from({ length: 7 }, (_, index) => (
           <Skeleton
             key={index}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             variant="rectangular"
             height={10}
             width={100 + 10 * index}
@@ -53,6 +55,8 @@ const Dashboard = () => {
         overflow: "scroll",
       }}
     >
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <Table columns={columns} data={items} />
     </Box>
   );
