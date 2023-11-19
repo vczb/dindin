@@ -11,9 +11,11 @@ const Header = () => {
       // @ts-ignore
       as="header"
       flex="row"
-      fullWidth
       padding="small"
       variant="transparent"
+      style={{
+        margin: "auto",
+      }}
     >
       <Logo fill={theme.colors.primary.medium} />
     </Box>
