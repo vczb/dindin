@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useInventory from "../hooks/useInventory";
 import { Box, Skeleton, Table } from "sagu-ui";
+import Filter from "./Filter";
 
 const Dashboard = () => {
   const { getInventory, isLoading } = useInventory();
@@ -45,20 +46,23 @@ const Dashboard = () => {
   ];
 
   return (
-    <Box
-      variant="transparent"
-      flex="row"
-      padding="none"
-      shadow={true}
-      style={{
-        maxWidth: "70vw",
-        overflow: "scroll",
-      }}
-    >
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
-      <Table columns={columns} data={items} />
-    </Box>
+    <>
+      <Filter data={items || {}} />
+      <Box
+        variant="transparent"
+        flex="column"
+        padding="none"
+        shadow={true}
+        style={{
+          maxWidth: "70vw",
+          overflow: "scroll",
+        }}
+      >
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
+        <Table columns={columns} data={items} />
+      </Box>
+    </>
   );
 };
 
